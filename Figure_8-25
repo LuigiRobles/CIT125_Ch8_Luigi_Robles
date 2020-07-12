@@ -1,0 +1,21 @@
+// CIT125_Ch8_Fig_8-25.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// CIT125 Intro To C++ Luigi Robles
+// 07-11-2020 Summer Term
+// Ch8 Figure 8-25 Try This # 9
+// Asterisks Pattern Program
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	for (int row = 5; row > 0; row -= 1) //outter loop
+	{
+		for (int col = 1; col <= row * 2; col += 1) //nested loop
+			cout << "*"; //output 
+		//end for
+		cout << endl;
+	}	//end for
+
+	return 0;
+}	//end of main function
