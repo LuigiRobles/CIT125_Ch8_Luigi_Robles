@@ -1,0 +1,50 @@
+// CIT125_Ch8_Fig_8-18.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// CIT125 Intro to C++ Luigi Robles
+// 07-11-2020 Summer Term
+// Ch.8 Figure 8-18 Lab 8-2 Retirement Program
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+	//declare and initialize variables
+	int age = 0;
+	int currentSalary = 0;
+	int yearsToRetire = 0;
+	double newSalary = 0.0;
+	double total = 0.0;
+
+	//using setprecision manipulator
+	cout << fixed << setprecision(0);
+
+	//input part of IPO for age
+	cout << "Current age in years (1 to 64): ";
+	cin >> age;
+
+	//checking if age is whithin range
+	if (age < 1 || age > 64)
+		cout << "Please enter an age from 1 to 64." << endl;
+	else //continue code if age is within range
+	{
+		cout << "Current salary as a whole number: ";
+		cin >> currentSalary; //input for current salary
+		cout << endl;
+
+		yearsToRetire = 65 - age;
+		for (double rate = 0.03; rate < 0.06; rate += 0.01) //outter loop
+		{
+			newSalary = currentSalary; //year 1 salary
+			total = currentSalary;	   //year 1 salary
+			for (int year = 2; year <= yearsToRetire; year += 1) //nested loop
+			{
+				newSalary *= (1 + rate);
+				total += newSalary;
+			}	//end for
+			cout << "Total with a " << rate * 100
+				<< "% annual raise: $" << total << endl;
+		}	//end for
+	}	//end if
+	return 0;
+}	//end of main function
